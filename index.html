@@ -13,6 +13,16 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Показывает ошибку на экране, если приложение не запустилось
+      window.addEventListener('error', function (e) {
+        var r = document.getElementById('root');
+        if (r && !r.childElementCount) {
+          r.innerHTML = '<pre style="padding:24px;color:#ff9b9b;white-space:pre-wrap;font-size:12px">Ошибка загрузки: ' +
+            String(e.message || (e.target && (e.target.src || e.target.href)) || e.error) + '</pre>';
+        }
+      }, true);
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
