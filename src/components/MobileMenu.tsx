@@ -11,7 +11,9 @@ export default function MobileMenu() {
   const { menuOpen, setMenuOpen } = useStore()
   const { pathname } = useLocation()
 
-  useEffect(() => setMenuOpen(false), [pathname, setMenuOpen])
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname, setMenuOpen])
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false)
